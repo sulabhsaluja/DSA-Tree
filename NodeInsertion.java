@@ -69,13 +69,10 @@ public class NodeInsertion {
         root.right = new TreeNode(30);
 
         System.out.println("Before Insertion : ");
-
         printInorder(root);
-
         insertData(root,40);
         insertData(root, 100);
         System.out.println();
-
         System.out.println("After Insertion : ");
 
         printInorder(root);

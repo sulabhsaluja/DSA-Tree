@@ -1,4 +1,4 @@
-public class SearchTree {
+public class CountLeafNodes {
 
     static class TreeNode {
         int data;
@@ -10,13 +10,13 @@ public class SearchTree {
         }
     }
 
-    public static boolean search(TreeNode root, int key) {
+    public static int countLeaf(TreeNode root) {
         if (root == null)
-            return false;
-        if (root.data == key)
-            return true;
+            return 0;
+        if (root.left == null && root.right == null)
+            return 1;
 
-        return search(root.left, key) || search(root.right, key);
+        return countLeaf(root.left) + countLeaf(root.right);
     }
 
     public static void main(String[] args) {
@@ -26,7 +26,6 @@ public class SearchTree {
         root.left.left = new TreeNode(4);
         root.left.right = new TreeNode(5);
 
-        int keyToFind = 5;
-        System.out.println("Is " + keyToFind + " present in the tree? " + search(root, keyToFind));
+        System.out.println("Number of leaf nodes in the tree: " + countLeaf(root));
     }
 }
